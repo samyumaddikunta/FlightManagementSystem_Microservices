@@ -1,0 +1,11 @@
+&nbsp;<div class="container">
+    <div class="row">
+        <button (click)="showAdd = true; showSearch = false; showUpdate = false;" class="btn btn-sm btn-info">Add  &nbsp; <fa-icon [icon]="faPlusCircle"></fa-icon></button> &nbsp; &nbsp; &nbsp; 
+        <button (click)="showSearch = true; showAdd = false; showUpdate = false;" class="btn btn-sm btn-info">View <fa-icon [icon]="faEye"></fa-icon></button> &nbsp; &nbsp; &nbsp; 
+    </div>
+    <div class="row">
+        <app-addflight *ngIf="showAdd"></app-addflight>
+        <app-searchflight *ngIf="showSearch" (updateFlight)="showSearch = false; showAdd = false;updfli.updateFlight($event);"></app-searchflight>
+        <app-updateflight #updfli></app-updateflight>
+    </div>
+</div>

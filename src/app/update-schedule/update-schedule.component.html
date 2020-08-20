@@ -1,0 +1,93 @@
+<div *ngIf="showDiv">
+    <br>
+    <div class="container">
+        <div class="row">
+        <div class="form-group">
+            <div >      
+        <input type type=text class="form-control" placeholder="Schedule_Id" [(ngModel)]="data.scheduleId" name="scheduleId" #scheduleId="ngModel" required minlength="3">
+        <div *ngIf="scheduleId.invalid && (scheduleId.dirty || scheduleId.touched)"
+            class="alert alert-danger">
+        
+          <div *ngIf="scheduleId.errors.required">
+            Schedule Id is required.
+          </div>
+          <div *ngIf="scheduleId.errors.minlength">
+            Schedule Id must be at least 3 characters long.
+          </div>
+        </div> 
+         </div>
+        <br>
+        
+        <div>   
+        <input type type=text class="form-control" placeholder="Flight_no" [(ngModel)]="data.flight" name="flightNo" #flightNo="ngModel" required minlength="3">
+        <div *ngIf="flightNo.invalid && (flightNo.dirty || flightNo.touched)"
+            class="alert alert-danger">
+        
+          <div *ngIf="flightNo.errors.required">
+            Flight Id is required.
+          </div>
+          <div *ngIf="flightNo.errors.minlength">
+            Flight Id must be at least 3 characters long.
+          </div>
+        </div></div><br>
+        
+        
+        <div ><input type type=text class="form-control" placeholder="Source_airport" [(ngModel)]="data.source" name="source" #source="ngModel" required minlength="5">
+            <div *ngIf="source.invalid && (source.dirty || source.touched)"
+            class="alert alert-danger">
+        
+          <div *ngIf="source.errors.required">
+            source name is required.
+          </div>
+          <div *ngIf="source.errors.minlength">
+            source name must be at least 5 characters long.
+          </div>
+        </div> </div><br>
+        
+        
+        <div ><input type type=text class="form-control" placeholder="Destination_airport" [(ngModel)]="data.destination" name="destination" #destination="ngModel" required minlength="5">
+            <div *ngIf="destination.invalid && (destination.dirty || destination.touched)"
+            class="alert alert-danger">
+          <div *ngIf="destination.errors.required">
+            destination nmae is required.
+          </div>
+          <div *ngIf="destination.errors.minlength">
+            destination name must be at least 3 characters long.
+          </div>
+        </div> </div><br>
+        
+        
+        <div ><input type type=text class="form-control" placeholder="Fare" [(ngModel)]="data.fare" name="fare" #fare="ngModel" required minlength="3">
+            <div *ngIf="fare.invalid && (fare.dirty || fare.touched)"
+            class="alert alert-danger">
+          <div *ngIf="fare.errors.required">
+            fare amount is required.
+          </div>
+          <div *ngIf="fare.errors.minlength">
+            fare must be at least 3 characters long.
+          </div>
+        </div> </div><br> 
+        <div >   <input type type=datetime-local class="form-control" placeholder="Departure_date" [(ngModel)]="data.departure" name="departure" #departure="ngModel" required>
+            <div *ngIf="departure.invalid && (departure.dirty || departure.touched)"
+            class="alert alert-danger">
+        
+          <div *ngIf="departure.errors.required">
+            departure date is required.
+          </div>
+        </div> </div><br>
+        
+        
+        <div ><input type type=datetime-local class="form-control" placeholder="Arrival_date" [(ngModel)]="data.arrival" name="arrival" #arrival="ngModel" required>
+            <div *ngIf="arrival.invalid && (arrival.dirty || arrival.touched)"
+            class="alert alert-danger">
+          <div *ngIf="arrival.errors.required">
+            Arrival date is required.
+          </div>
+        </div> 
+        </div>
+        <br>
+                <button class="btn btn-sm btn-success" (click)="update()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

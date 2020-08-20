@@ -1,0 +1,22 @@
+<div>
+<form>
+    <div class="form-group">
+        <input type=text class="form-control" placeholder="Username" name="username" [(ngModel)]="data.username"><br>
+        <input type=password class="form-control" placeholder="Password" name="password"
+            [(ngModel)]="data.password"><br>
+        <input type=password class="form-control" placeholder="Confirm Password" name="confirm"
+            [(ngModel)]="data.confirm"><br>
+        <input type="name" class="form-control" placeholder="Name" name="name" [(ngModel)]="data.name"><br>
+        <select class="form-control" [(ngModel)]="data.gender" name="gender">
+            <option  value="" disabled selected hidden>Gender</option> 
+            <option *ngFor="let state of State" [ngValue]="state">{{state}}</option>
+        </select><br>
+        <input type=tel class="form-control" placeholder="Phone Number" name="phone"
+            [(ngModel)]="data.phone"><br>
+        <input type=email class="form-control" placeholder="Email" name="email" [(ngModel)]="data.email"><br><br>
+        <button (click)="submit()" class="btn btn-sm btn-primary"><b>SignUp</b></button>
+        &nbsp;
+        Already have an Account? <button [routerLink]="'/login'" class="btn btn-sm btn-link" style="color: white">login</button>
+    </div>
+</form>
+</div>

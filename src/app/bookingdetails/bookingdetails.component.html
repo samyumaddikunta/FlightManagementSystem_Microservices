@@ -1,0 +1,75 @@
+<br>
+<div class="row" style="padding-left: 20px;">
+    <div class="col-sm-4">
+        <div class="card">
+            <h4 class=".card-title" style="padding-left: 20px; padding-top: 10px">Booking ID: {{bookingData.bookingId}}
+            </h4>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        Flight Number
+                    </div>
+                    <div class="col-sm-6">
+                        {{bookingData.flightSchedule.flight.flightNo}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        Source
+                    </div>
+                    <div class="col-sm-6">
+                        {{bookingData.flightSchedule.source.area}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        Destination
+                    </div>
+                    <div class="col-sm-6">
+                        {{bookingData.flightSchedule.destination.area}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        Departure
+                    </div>
+                    <div class="col-sm-6">
+                        {{bookingData.flightSchedule.departure | date: 'dd-MMM-yyyy HH:mm:ss'}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        Arrival
+                    </div>
+                    <div class="col-sm-6">
+                        {{bookingData.flightSchedule.arrival | date: 'dd-MMM-yyyy HH:mm:ss'}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="padding-left: 20px; padding-right: 20px; padding-top: 20px">
+    <div class="col-sm-12">
+        <div class="card">
+            <h5 class=".card-title" style="padding-left: 20px; padding-top: 10px">Passenger Details</h5>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3" *ngFor="let passenger of bookingData.passengers; let i = index">
+                        <h6>Passenger {{i+1}}</h6>
+                        Name: {{passenger.name}}<br>
+                        Age: {{passenger.age}}<br>
+                        Gender: {{passenger.gender}}<br>
+                        Phone: {{passenger.phone}}<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-left: 20px;">
+        <div class="col-sm-12">
+            <button class="btn btn-sm btn-danger" style="margin-top:20px;" (click)="cancel()">Cancel <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
+        </div>
+    </div>
+</div>

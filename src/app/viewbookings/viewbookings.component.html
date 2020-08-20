@@ -1,0 +1,39 @@
+<div style="padding-left: 40px; padding-right: 40px;">
+<div class="row" style="padding-bottom: 20px;">
+    <div class="col-md-12">
+    <h4>All Bookings</h4>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Booking #</th>
+                <th scope="col">Flight Number</th>
+                <th scope="col">Source</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Departure</th>
+                <th scope="col">Arrival</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let booking of bookingData">
+                <th scope="row">
+                    {{booking.bookingId}}
+                </th>
+                <td>{{booking.flightSchedule.flight.flightNo}}</td>
+                <td>{{booking.flightSchedule.source.area}}</td>
+                <td>{{booking.flightSchedule.destination.area}}</td>
+                <td>{{booking.flightSchedule.departure | date: 'dd-MMM-yyyy HH:mm:ss'}}</td>
+                <td>{{booking.flightSchedule.arrival | date: 'dd-MMM-yyyy HH:mm:ss'}}</td>
+                <td><button type="button" class="btn btn-success" (click)="book(booking.bookingId)">
+                    <fa-icon [icon]="faArrowRight"></fa-icon>
+                </button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+</div>

@@ -1,0 +1,16 @@
+&nbsp;<div class="container">
+    <div class="row">
+        <button (click)="showAdd = true; showSearch = false; showUpdate = false" class="btn btn-sm btn-info">Add &nbsp;
+            <fa-icon [icon]="faPlusCircle"></fa-icon></button> &nbsp; &nbsp; &nbsp;
+        <button (click)="showSearch = true; showAdd = false; showUpdate = false;" class="btn btn-sm btn-info">View
+            &nbsp;<fa-icon [icon]="faEye"></fa-icon></button>&nbsp; &nbsp; &nbsp;
+            
+            <button [routerLink]="'/login'" class="btn btn-sm btn-info" >Log Out  &nbsp;<fa-icon [icon]="faAlignJustify"></fa-icon></button>
+    </div>
+    <div class="row">
+        <app-addschedule *ngIf="showAdd"></app-addschedule>
+        <app-searchschedule *ngIf="showSearch"
+            (updateSchedule)="showSearch = false; showAdd = false;updsch.updateSchedule($event);"></app-searchschedule>
+        <app-update-schedule #updsch></app-update-schedule>
+    </div>
+</div>

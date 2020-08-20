@@ -1,0 +1,58 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="form-group">
+            <input type=text class="form-control" placeholder="Flight Number" [(ngModel)]="data.flightNo"
+                name="flightNo"><br>
+            <button class="btn btn-sm btn-success" style="display: inline;" (click)="searchFlight()">Search <fa-icon [icon]="faSearch"></fa-icon></button>
+        </div>
+    </div>
+</div>
+<br><br><br>
+<div class="container" style="width: 100%;" *ngIf="flightData.length > 1">
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let flight of flightData">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-20">
+                            Flight Number: {{flight.flightNo}}<br>
+                            Carrier: {{flight.carrierName}}<br>
+                            Capacity: {{flight.seatCapacity}}<br>
+                            Flight Model:{{flight.flightModel}}<br>
+                        </div>
+                        <div class="col-sm-5">
+                            <button class="btn btn-sm btn-info" (click)="update(flight)"
+                                style="margin-top:10px;">Update <fa-icon [icon]="faPenSquare"></fa-icon></button>
+                            <br>
+                            <button class="btn btn-sm btn-danger" (click)="delete(flight.flightNo)"
+                                style="margin-top:20px;">Delete <fa-icon [icon]="faTrash"></fa-icon></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="flightData.length == 1">
+    <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-20">
+                            Flight Number: {{flightData[0].flightNo}}<br>
+                            Carrier: {{flightData[0].carrierName}}<br>
+                            Capacity: {{flightData[0].seatCapacity}}<br>
+                            Flight Model:{{flightData[0].flightModel}}
+                        </div>
+                        <div class="col-sm-5">
+                            <button class="btn btn-sm btn-info" (click)="update(flightData[0])"
+                                style="margin-top:10px;">Update <fa-icon [icon]="faPenSquare"></fa-icon></button>
+                            <br>
+                            <button class="btn btn-sm btn-danger" (click)="delete(flightData[0].flightNo)"
+                                style="margin-top:20px;">Delete <fa-icon [icon]="faTrash"></fa-icon></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>

@@ -1,0 +1,45 @@
+<br>
+<div class="row">
+    <div class="col-sm-12" style="padding-left: 50px;">
+        <div class="row">
+            <div class="col-md-1">
+                &nbsp;
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row" *ngFor="let i of Arr(cnt).fill(1); let j = index" style="padding-top: 20px">
+                <div class="col-md-1">
+                    Passenger {{j+1}}
+                </div>
+                <div class="col-md-3">
+                    <input type type=text class="form-control" placeholder="Name" [(ngModel)]="data[j].name"
+                        name="name">
+                </div>
+                <div class="col-md-1">
+                    <input type type=text class="form-control" placeholder="Age" [(ngModel)]="data[j].age" name="age">
+                </div>
+                <div class="col-md-2">
+                    <select class="form-control" [(ngModel)]="data[j].gender" name="gender">
+                        <option  value="" disabled selected hidden>Gender</option> 
+                        <option *ngFor="let state of State" [ngValue]="state">{{state}}</option>
+                    </select><br>
+                </div>
+                <div class="col-md-2">
+                    <input type type=text class="form-control" placeholder="Phone" [(ngModel)]="data[j].phone"
+                        name="phone">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-1">
+                &nbsp;
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-sm btn-success" (click)="add()">Add Passenger</button>&nbsp;&nbsp;
+                <button class="btn btn-sm btn-success" (click)="confirm()">Confirm Booking</button>
+            </div>
+        </div>
+    </div>
+</div>

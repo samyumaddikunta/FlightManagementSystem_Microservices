@@ -1,0 +1,21 @@
+<div *ngIf="showDiv">
+    <br>
+<br>
+<h4>Update Flight</h4>
+<br>
+<div class="container">
+     <div class="row">
+    <div class="form-group">
+        <label>Flight_no:</label>
+        <input type type=text class="form-control" [(ngModel)]="data.flightNo" name="flightNo"><br>
+        <label>Carrier_name:</label>
+        <input type type=text class="form-control" [(ngModel)]="data.carrierName" name="carrierName"><br>
+        <label>Seat_capacity:</label>
+        <input type type=text class="form-control" [(ngModel)]="data.seatCapacity" name="seatCapacity"><br>
+        <label>flight_model:</label>
+        <input type type=text class="form-control" [(ngModel)]="data.flightModel" name="flightModel"><br>
+        <button class="btn btn-sm btn-success" (click)="update()">Submit</button>
+    </div>
+</div>
+</div>
+</div>

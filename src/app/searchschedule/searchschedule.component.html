@@ -1,0 +1,63 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="form-group">
+            <input type=text class="form-control" placeholder="Schedule_Id" name="scheduleId" [(ngModel)]="data.scheduleId"><br>
+            <button class="btn btn-sm btn-success" style="display: inline;" (click)="searchSchedule()">Search &nbsp;<fa-icon [icon]="faSearch"></fa-icon></button>
+        </div>
+    </div>
+</div>
+<br><br><br>
+<div class="container" style="width: 100%;" *ngIf="scheduleData.length > 1">
+    <div class="row">
+        <div class="col-sm-6" *ngFor="let schedule of scheduleData">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            Schedule_Id: {{schedule.scheduleId}}<br>
+                            Flight_no: {{schedule.flight.flightNo}}<br>
+                            Source_airport: {{schedule.source.area}}<br>
+                            Destination_airport: {{schedule.destination.area}}<br>
+                            Fare: {{schedule.fare}}<br>
+                            Departure: {{schedule.departure | date: 'dd-MMM-yyyy HH:mm:ss'}}<br>
+                            Arrival: {{schedule.arrival | date: 'dd-MMM-yyyy HH:mm:ss'}}<br>
+                        </div>
+                        <div class="col-sm-5">
+                            <button class="btn btn-sm btn-info"
+                                style="margin-top:10px;" (click)="update(schedule)">Update  &nbsp;<fa-icon [icon]="faPenSquare"></fa-icon></button>
+                            <br>
+                            <button class="btn btn-sm btn-danger" (click)="delete(schedule.scheduleId)"
+                                style="margin-top:20px;">Delete &nbsp; <fa-icon [icon]="faTrash"></fa-icon></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="scheduleData.length == 1">
+    <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            Schedule_Id: {{scheduleData[0].scheduleId}}<br>
+                            Flight_no: {{scheduleData[0].flight.flightNo}}<br>
+                            Source_airport: {{scheduleData[0].source.area}}<br>
+                            Destination_airport: {{scheduleData[0].destination.area}}<br>
+                            Fare: {{scheduleData[0].fare}}<br>
+                            Departure:{{scheduleData[0].departure | date: 'dd-MMM-yyyy HH:mm:ss'}}<br>
+                            Arrival:{{scheduleData[0].arrival | date: 'dd-MMM-yyyy HH:mm:ss'}}
+                        </div>
+                        <div class="col-sm-3">
+                            <button class="btn btn-sm btn-info" (click)="update(scheduleData[0])"
+                                style="margin-top:10px;"> <fa-icon [icon]="faPenSquare"></fa-icon></button>
+                            <br>
+                            <button class="btn btn-sm btn-danger" (click)="delete(scheduleData[0].scheduleId)"
+                                style="margin-top:20px;"> <fa-icon [icon]="faTrash"></fa-icon></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
